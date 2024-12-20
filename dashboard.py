@@ -5,7 +5,7 @@ import streamlit as st
 sns.set(style='dark')
 
 # Impor dataset
-day = pd.read_csv('dashboard/day.csv')
+day = pd.read_csv('day.csv')
 day.head()
 
 # Mengganti nama kolom
