@@ -88,10 +88,14 @@ with st.sidebar:
 
 # Membuat judul dashboard
 st.header('Proyek Analisis Data: Bike Sharing Dataset')
-st.dataframe(day.head())
+st.subheader('Data Peminjaman Sepeda')
+
+default_row = 5
+default_row = st.number_input("Insert a number")
+
+st.dataframe(day.sample(default_row))
 
 st.subheader('Peminjaman Sepeda Berdasarkan Musim')
-
 seasonList = ('Spring', 'Summer', 'Fall', 'Winter')
 
 seasons = st.multiselect(
