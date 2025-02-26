@@ -88,7 +88,7 @@ with st.sidebar:
 
 # Membuat judul dashboard
 st.header('Proyek Analisis Data: Bike Sharing Dataset')
-st.table(day.head())
+st.dataframe(day.head())
 
 st.subheader('Peminjaman Sepeda Berdasarkan Musim')
 
