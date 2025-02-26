@@ -91,7 +91,9 @@ st.header('Proyek Analisis Data: Bike Sharing Dataset')
 st.subheader('Data Peminjaman Sepeda')
 
 default_row = 5
-default_row = st.number_input("Insert a number")
+default_row = st.number_input(
+    "Masukkan jumlah baris", value=5, placeholder="Type a number...", min_value=1, max_value=50
+)
 
 st.dataframe(day.sample(default_row))
 
