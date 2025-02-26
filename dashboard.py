@@ -88,7 +88,7 @@ with st.sidebar:
 
 # Membuat judul dashboard
 st.header('Proyek Analisis Data: Bike Sharing Dataset')
-st.subheader('Data Peminjaman Sepeda')
+st.subheader('Contoh Data Peminjaman Sepeda')
 
 default_row = 5
 default_row = st.number_input(
