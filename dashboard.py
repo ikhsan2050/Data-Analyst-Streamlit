@@ -116,9 +116,9 @@ ax = sns.barplot(
 for c in ax.containers:
     ax.bar_label(c)
 
-plt.title('Jumlah Pengguna Sepeda berdasarkan Musim')
+plt.title('Rata-rata Pengguna Sepeda berdasarkan Musim')
 plt.xlabel('Musim')
-plt.ylabel('Jumlah Pengguna Sepeda')
+plt.ylabel('Rata-rata Pengguna Sepeda')
 st.pyplot(fig)
 
 st.write('''
@@ -149,9 +149,9 @@ ax = sns.barplot(
 for c in ax.containers:
     ax.bar_label(c)
 
-plt.title('Jumlah Pengguna Sepeda berdasarkan Hari')
+plt.title('Rata-rata Pengguna Sepeda berdasarkan Hari')
 plt.xlabel('Hari')
-plt.ylabel('Jumlah Pengguna Sepeda')
+plt.ylabel('Rata-rata Pengguna Sepeda')
 st.pyplot(fig)
 
 st.write('''
