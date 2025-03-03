@@ -218,8 +218,8 @@ st.write('''
 
 ''')
 
-cluster = pd.cut(day['count'], bins=3, labels=["Sedikit", "Sedang", "Banyak"], )
-cluster
+cluster = pd.cut(day['count'], bins=3, labels=["Sedikit", "Sedang", "Banyak"])
+day.insert(len(day.columns), 'cluster', cluster)
 
 # Membuat kolom temperature yang sesungguhnya
 real_temp = 41
