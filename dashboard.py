@@ -88,14 +88,14 @@ with st.sidebar:
 
 # Membuat judul dashboard
 st.header('Proyek Analisis Data: Bike Sharing Dataset')
-st.subheader('Contoh Data Peminjaman Sepeda')
+# st.subheader('Contoh Data Peminjaman Sepeda')
 
-default_row = 5
-default_row = st.number_input(
-    "Masukkan jumlah baris", value=5, placeholder="Type a number...", min_value=1, max_value=50
-)
+# default_row = 5
+# default_row = st.number_input(
+#     "Masukkan jumlah baris", value=5, placeholder="Type a number...", min_value=1, max_value=50
+# )
 
-st.dataframe(day.sample(default_row))
+# st.dataframe(day.sample(default_row))
 
 st.subheader('Peminjaman Sepeda Berdasarkan Musim')
 seasonList = ('Spring', 'Summer', 'Fall', 'Winter')
@@ -227,12 +227,23 @@ day['real_temp'] = day['temp']*real_temp
 
 # Diagram Keempat
 st.subheader('Visualisasi Clustering Data Pengguna Sepeda')
+
+clusterList = ['Sedikit', 'Sedang', 'Banyak']
+clusters = st.multiselect(
+    label="Pilih Cluster",
+    options= clusterList,
+    default= clusterList
+)
+
+clusterSelect = day[day['cluster'].isin(clusters)]
+
 fig = plt.figure(figsize=(12, 6))
 ax = sns.scatterplot(
     data=day,
     x="count",
     y="real_temp",
-    hue="cluster"
+    hue="cluster",
+    order=clusterSelect.groupby(['cluster'])['count'].mean().sort_values().index)
 )
 plt.title('Visualisasi Clustering Data Pengguna Sepeda')
 plt.xlabel('Jumlah Pengguna')
