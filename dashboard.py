@@ -244,7 +244,7 @@ ax = sns.scatterplot(
     y="real_temp",
     hue="cluster",
     order=clusterSelect.groupby(['cluster'])['count'].mean().sort_values().index)
-)
+
 plt.title('Visualisasi Clustering Data Pengguna Sepeda')
 plt.xlabel('Jumlah Pengguna')
 plt.ylabel('Temperatur (Celcius)')
