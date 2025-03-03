@@ -228,22 +228,17 @@ day['real_temp'] = day['temp']*real_temp
 # Diagram Keempat
 st.subheader('Visualisasi Clustering Data Pengguna Sepeda')
 
-clusterList = ['Sedikit', 'Sedang', 'Banyak']
-clusters = st.multiselect(
-    label="Pilih Cluster",
-    options= clusterList,
-    default= clusterList
-)
+cluster_filter = st.multiselect('Select Cluster', options=list(day['cluster'].unique()), default=list(day['cluster'].unique()))
 
-clusterSelect = day[day['cluster'].isin(clusters)]
+filtered = day[day['cluster'].isin(cluster_filter)]
 
 fig = plt.figure(figsize=(12, 6))
 ax = sns.scatterplot(
-    data=day,
+    data=filtered,
     x="count",
     y="real_temp",
     hue="cluster",
-    order=clusterSelect.groupby(['cluster'])['count'].mean().sort_values().index)
+)
 
 plt.title('Visualisasi Clustering Data Pengguna Sepeda')
 plt.xlabel('Jumlah Pengguna')
