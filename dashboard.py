@@ -218,4 +218,25 @@ st.write('''
 
 ''')
 
+cluster = pd.cut(day['count'], bins=3, labels=["Sedikit", "Sedang", "Banyak"], )
+cluster
+
+# Membuat kolom temperature yang sesungguhnya
+real_temp = 41
+day['real_temp'] = day['temp']*real_temp
+
+# Diagram Keempat
+st.subheader('Visualisasi Clustering Data Pengguna Sepeda')
+fig = plt.figure(figsize=(12, 6))
+ax = sns.scatterplot(
+    data=day,
+    x="count",
+    y="real_temp",
+    hue="cluster"
+)
+plt.title('Visualisasi Clustering Data Pengguna Sepeda')
+plt.xlabel('Jumlah Pengguna')
+plt.ylabel('Temperatur (Celcius)')
+st.pyplot(fig)
+
 st.caption('Copyright Mukhamad Ikhsanudin © Dicoding 2024')
