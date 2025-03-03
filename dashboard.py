@@ -228,7 +228,7 @@ day['real_temp'] = day['temp']*real_temp
 # Diagram Keempat
 st.subheader('Visualisasi Clustering Data Pengguna Sepeda')
 
-cluster_filter = st.multiselect('Select Cluster', options=list(day['cluster'].unique()), default=list(day['cluster'].unique()))
+cluster_filter = st.multiselect('Pilih Cluster', options=list(day['cluster'].unique()), default=list(day['cluster'].unique()))
 
 filtered = day[day['cluster'].isin(cluster_filter)]
 
